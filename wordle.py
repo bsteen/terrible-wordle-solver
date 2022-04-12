@@ -4,17 +4,18 @@ import sys
 import time
 
 start = time.time()
-# Get user word (? = any letter)
+# Get user word (green letters and ? = unknown letters)
 user_word = sys.argv[1]
 assert len(user_word) == 5
 
-# Remove letters that are known not to be in word
+# Remove letters that are known not to be in word (incorrect guesses)
 bad_letters = list(sys.argv[2])
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 for bl in bad_letters:
     alphabet.remove(bl)
 
-must_contain = list(sys.argv[3])
+# Get yellow letters
+must_contain = list(sys.argv[3]) 
 
 # Load dictionary
 with open("wordle-dict.txt", "r") as f:
@@ -26,6 +27,7 @@ def insert_letters(combo):
         possible_words.append(combo.replace("?", alp, 1))
     return possible_words
 
+# Replace "?" with every possible letter combination
 letter_combos = [user_word]
 cont = True
 while cont:
@@ -37,6 +39,7 @@ while cont:
 assert "?" not in letter_combos
 
 # print(len(letter_combos)) #FIXME MANY possible words... too large to compute quickly
+# Go through letter combinations, remove invalid words
 possible_words = []
 for word in letter_combos:
     if word in wordle_dict:
