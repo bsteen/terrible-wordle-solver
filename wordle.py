@@ -13,19 +13,22 @@ user_word = sys.argv[1]
 assert len(user_word) == 5
 
 # Remove incorrect letter guesses (letters that are known not to be in word)
-bad_letters = list(sys.argv[2])
+wrong_letters = list(sys.argv[2])
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-for bl in bad_letters:
+for bl in wrong_letters:
     alphabet.remove(bl)
 
+# Get yellow letters (letters are in word, but don't know position)
 must_contain = list(sys.argv[3])
 
+# Helper function to generate all possible letter combinations
 def insert_letters(combo):
     possible_words = []
     for alp in alphabet:
         possible_words.append(combo.replace("?", alp, 1))
     return possible_words
 
+# Replace question marks with all possible letter combinations
 letter_combos = [user_word]
 cont = True
 while cont:
@@ -34,9 +37,9 @@ while cont:
         if "?" in letter_combos[i]:
             letter_combos += insert_letters(letter_combos.pop(i))
             cont = True
-assert "?" not in letter_combos
 
 # print(len(letter_combos)) #FIXME MANY possible words... too large to compute quickly
+# Go through letter combinations, only keep ones that are valid Wordle words AND contain yellow letters
 possible_words = []
 for word in letter_combos:
     if word in wordle_dict:
