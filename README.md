@@ -1,9 +1,9 @@
 # terrible-wordle-solver
 My terrible attempt at a Wordle solver
-- 1st Argument: green letters (correctly guessed letters) and unknown letters (?)
-- 2nd Argument: incorrect letters guessed, in any order (enter `""` if there are none)
+- 1st Argument: green letters (correctly guessed letters) and unknown letters (enter as `?`)
+- 2nd Argument: incorrectly guessed letters, in any order (enter `""` if there are none)
 - 3rd Argument: yellow letters, in any order (letters you know are in the word, but don't know the position; enter `""` if there are none)
-- Wordle dictionary must be provide in text file named `wordle-dict.txt`
+- Wordle dictionary must be provided in text file named `wordle-dict.txt`
 
 # Usage Example
 `python3 wordle.py "s???d" "iertn" "a"`  
