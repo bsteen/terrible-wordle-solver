@@ -14,9 +14,7 @@ alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'
 for bl in bad_letters:
     alphabet.remove(bl)
 
-must_contain = []
-if len(sys.argv) == 4:
-    must_contain = list(sys.argv[3])
+must_contain = list(sys.argv[3])
 
 # Load dictionary
 with open("wordle-dict.txt", "r") as f:
