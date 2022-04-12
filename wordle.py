@@ -36,7 +36,6 @@ while cont:
         if "?" in letter_combos[i]:
             letter_combos += insert_letters(letter_combos.pop(i))
             cont = True
-assert "?" not in letter_combos
 
 # print(len(letter_combos)) #FIXME MANY possible words... too large to compute quickly
 # Go through letter combinations, remove invalid words
