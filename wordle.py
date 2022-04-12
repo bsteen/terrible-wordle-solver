@@ -48,4 +48,4 @@ for word in letter_combos:
 possible_words.sort()
 
 end = time.time()
-print(f"{len(letter_combos)} letter combinations, {len(possible_words)} valid words, {end-start:0.3f} seconds\n{possible_words}")
+print(f"{len(letter_combos)} letter combinations, {len(possible_words)} possible words, {end-start:0.3f} seconds\n{possible_words}")
