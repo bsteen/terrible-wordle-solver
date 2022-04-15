@@ -48,4 +48,14 @@ for word in letter_combos:
 possible_words.sort()
 
 end = time.time()
-print(f"{len(letter_combos)} letter combinations, {len(possible_words)} possible words, {end-start:0.3f} seconds\n{possible_words}")
+print(f"{len(letter_combos)} letter combinations, {len(possible_words)} valid words, {end-start:0.3f} seconds")
+
+# Print words, 9 per row
+i = 0
+for pw in possible_words:
+    i +=1
+    print(pw, end=" ")
+    if i == 9:
+        print()
+        i = 0
+print()
