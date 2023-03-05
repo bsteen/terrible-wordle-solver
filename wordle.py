@@ -1,4 +1,4 @@
-# (C) 2022 Benjamin Steenkamer
+# Copyright 2022 - 2023 Benjamin Steenkamer
 
 import sys
 import time
